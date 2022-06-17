@@ -1,5 +1,5 @@
-const {Model, DataTypes}= require('sequelize')
-const sequelize = require('../config/connection.js')
+const {Model, DataTypes}= require('sequelize');
+const sequelize = require('../config/connection');
 
 
 class History extends Model{}
@@ -21,10 +21,12 @@ History.init(
     {
     sequelize,
     timestamps: false,
+    freezeTableName:true,
+    underscored:true,
     modelName:'history'
     },
 
-)
+);
 
-console.log({History})
+
 module.exports = History;
