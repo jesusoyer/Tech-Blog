@@ -7,9 +7,15 @@ const sequelize = new Sequelize(
     process.env.user_name,
     process.env.password ,
     {
-        host:'localhost',
-        dialect:'mysql',
+        host:"localhost",
+        dialect:"mysql",
+        port:3306,
+        dialectOptions: {
+            decimalNumbers:true,
+        }
         
     }
 )
-module.exports = sequelize
+
+
+module.exports = sequelize;
