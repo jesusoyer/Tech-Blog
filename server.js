@@ -1,6 +1,6 @@
 const express = require("express");
 const sequelize = require('./config/connection');
-
+const routes = require('./routes')
 const History = require('./models/b_history')
 
 const app = express();
