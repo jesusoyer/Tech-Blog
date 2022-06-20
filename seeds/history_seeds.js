@@ -1,4 +1,4 @@
-const History = require('../models/b_history');
+const History = require('../models/History');
 
 const historyData = [
     {

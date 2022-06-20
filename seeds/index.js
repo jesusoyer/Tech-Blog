@@ -1,6 +1,6 @@
 const seedData = require("./history_seeds");
 
-const sequelize = require ('require')
+const sequelize = require ('../config/connection');
 
 const seedTheData = async ()=> {
     await sequelize.sync({force: true});

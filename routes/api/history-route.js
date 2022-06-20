@@ -1,4 +1,6 @@
-const  History  = require('../models/b_history.js');
+
+const router = require('express').Router();
+const  History  = require('../../models/History.js');
 
 
 router.get('/', async (req, res) => {
@@ -11,3 +13,5 @@ router.get('/', async (req, res) => {
       res.status(500).json(err)
     }
     });
+
+    module.exports = router;
