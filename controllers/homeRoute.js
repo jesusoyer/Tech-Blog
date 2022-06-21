@@ -11,17 +11,27 @@ router.get('/', async (req, res) => {
       const exam = exampleData.map((examp) =>
       examp.get({ plain: true })
     );
-    console.log(exam);
-    console.log(exam[0].post_name)
+   
+       
+    req.session.save(()=> {
+            if(req.session.countVisit){
+                req.session.countVisit++;
+            } else {
+                req.session.countVisit =1;
+            }
+        
 
     res.render('homepage', {
-      exam,
-    });    
+      exam, 
+      countVisit:req.session.countVisit,
+    }); 
+    });   
     } catch (err) {
       console.log(err)
       res.status(500).json(err)
     }
-    });
+});
+
 
     router.post('/', async (req, res) => {
         try {
