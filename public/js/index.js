@@ -31,8 +31,37 @@ const storeInputValue = async (event) => {
     }
   };
 
+  const delButtonHandler = async (event) => {
+   if(event.target.hasAttribute('data-id')){
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert('Failed to delete project');
+    }
+
+
+   }
+  
+    }
+  
+
+
+
+
+
+
+
+  const deleteButton = document.querySelector('.delete')
   const button = document.querySelector('#submit');
 
+
+  deleteButton.addEventListener('click',delButtonHandler)
   button.addEventListener('click', storeInputValue)
 
 

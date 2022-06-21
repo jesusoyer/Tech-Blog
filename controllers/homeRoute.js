@@ -35,5 +35,25 @@ router.get('/', async (req, res) => {
         // create a category
       });
 
+      router.delete('/:id', async (req, res) => {
+        try {
+          const tagData = await History.destroy({
+            where: {
+              id: req.params.id,
+            },
+          });
+      
+          if (!tagData) {
+            res.status(404).json({ message: 'No reader found with that id!' });
+            return;
+          }
+      
+          res.status(200).json(tagData);
+        } catch (err) {
+          res.status(500).json(err);
+        }
+        //delete tags by its id value
+      });
+
 
     module.exports=router;
