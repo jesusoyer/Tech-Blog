@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       exam, 
-      countVisit:req.session.countVisit,
+      loggedIn: req.session.loggedIn,
     }); 
     });   
     } catch (err) {
