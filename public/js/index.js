@@ -57,12 +57,12 @@ const storeInputValue = async (event) => {
 
 
 
-  const deleteButton = document.querySelector('.delete')
-  const button = document.querySelector('#submit');
+//   const deleteButton = document.querySelector('.delete')
+//   const button = document.querySelector('#submit');
 
 
-  deleteButton.addEventListener('click',delButtonHandler)
-  button.addEventListener('click', storeInputValue)
+//   deleteButton.addEventListener('click',delButtonHandler)
+//   button.addEventListener('click', storeInputValue)
 
 
 
