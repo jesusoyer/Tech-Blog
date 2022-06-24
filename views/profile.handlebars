@@ -23,23 +23,13 @@
 
 {{#each histories as |history|}}
       <h1>{{history.post_title}} {{history.date_created}}</h1> <h2>{{history.post_text}}</h2>
-{{/each}}
-  {{!-- {{#if history.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+ 
+ <input class="form-input" type="text" id="reply_text" name="reply_text" />
+         <label for="project-name">comment</label>
+       
+      <button type="submit" id = "reply" class="btn btn-primary">reply</button>
 
-    {{#each history as |historys|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{historys.id}}">{{historys.post_title}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{historys.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
-</div> --}}
+{{/each}}
+
 
 <script src="./js/profile.js"></script>

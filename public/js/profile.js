@@ -38,9 +38,50 @@ const newPost = async (event) => {
       }
     }
   };
+
+
+  const replyPost = async (event) => {
+    event.preventDefault();
   
-  const button = document.querySelector('#post')
-    button.addEventListener('click', newPost);
+    const reply_text = document.querySelector('#reply_text').value.trim();
+    
+  
+
+    if (reply_text) {
+      const response = await fetch(`/api/reply`, {
+        method: 'POST',
+        body: JSON.stringify({ reply_text,}),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to create project');
+      }
+    }
+  };
+
+
+
+
+
+  document
+  .querySelector('#post')
+  .addEventListener('click', newPost);
+
+document
+  .querySelector('#reply')
+  .addEventListener('click', replyPost);
+
+// const replyBtn = document.querySelector('#reply')
+
+// replyBtn.addEventListener('click', replyPost)
+  
+  // const button = document.querySelector('#post')
+  //   button.addEventListener('click', newPost);
   
 
 
