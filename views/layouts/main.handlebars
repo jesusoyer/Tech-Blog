@@ -11,17 +11,28 @@
 
 <body>
  
-    <a href="/">Home</a>
+
   </nav>
   <main>
-
+   {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
 
 
    
-   <a href = "/login">login</a>
 {{{body}}}
     
-<script src ="./js/index.js"></script>
+
+ {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
+
+
+
 </body>
 
 </html>

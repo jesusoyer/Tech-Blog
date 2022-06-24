@@ -1,10 +1,41 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome</h2>
+    <h2>Welcome,{{id}} {{username}} {{user_id}}!</h2>
+
   </div>
 </div>
 
+<div class="row mt-4">
+  <div class="col-md-6">
 
-</div>
+
+    <form class="form new-project-form">
+      <div class="form-group">
+        <label for="project-name">post title</label>
+        <input class="form-input" type="text" id="post_title" name="post_title" />
+        <label for="project-name">post text</label>
+        <input class="form-input" type="text" id="post_text" name="post_text" />
+      </div>
+      <button type="submit" id = "post" class="btn btn-primary">post</button>
+
+      <h1>{{history.post_title}}</h1> <h2>{{history.post_text}}</h2>
+
+  {{!-- {{#if history.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Projects:</h3>
+
+    {{#each history as |historys|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/project/{{historys.id}}">{{historys.post_title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{historys.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div> --}}
 
 <script src="./js/profile.js"></script>

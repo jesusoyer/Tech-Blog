@@ -15,10 +15,21 @@ History.init(
         autoIncrement: true,
         },
     
-     post_name:{
+     post_title:{
         type:DataTypes.STRING,
         allowNull:false,
      },
+     post_text:{
+        type:DataTypes.STRING,
+        allowNull: false,
+     },
+     user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'user',
+          key: 'id',
+        },
+      },
     },
     {
     sequelize,
