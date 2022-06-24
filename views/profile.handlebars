@@ -18,8 +18,11 @@
       </div>
       <button type="submit" id = "post" class="btn btn-primary">post</button>
 
-      <h1>{{history.post_title}}</h1> <h2>{{history.post_text}}</h2>
+        {{#each historys as |history|}}
 
+
+      <h1>{{history.post_title}}</h1> <h2>{{history.post_text}}</h2>
+{{/each}}
   {{!-- {{#if history.length}}
   <div class="col-md-6 project-list">
     <h3>Current Projects:</h3>

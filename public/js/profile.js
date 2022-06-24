@@ -4,10 +4,10 @@ const newPost = async (event) => {
   
     const post_title = document.querySelector('#post_title').value.trim();
     const post_text = document.querySelector('#post_text').value.trim();
-    if (post_title, post_text) {
+    if (post_title && post_text) {
       const response = await fetch(`/api/history`, {
         method: 'POST',
-        body: JSON.stringify({ post_title,post_text }),
+        body: JSON.stringify({ post_title, post_text }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -25,7 +25,7 @@ const newPost = async (event) => {
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/projects/${id}`, {
+      const response = await fetch(`/api/history/${id}`, {
         method: 'DELETE',
       });
   
@@ -38,7 +38,7 @@ const newPost = async (event) => {
   };
   
   const button = document.querySelector('#post')
-    button.addEventListener('submit', newPost);
+    button.addEventListener('click', newPost);
   
 
 

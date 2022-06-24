@@ -3,14 +3,14 @@ const router = require('express').Router();
 const  History  = require('../../models/History');
 const withAuth = require('../../utils/auth')
 
-router.post('/history', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
-    const newPost = await History.create({
+    const newpost = await History.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newPost);
+    res.status(200).json(newpost);
   } catch (err) {
     res.status(400).json(err);
   }
