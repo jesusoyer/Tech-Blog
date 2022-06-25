@@ -48,15 +48,28 @@ router.get('/login', (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
-      const userData = await User.findByPk(req.session.user_id, {
+      const a = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        include: [{ model: History },{model: Reply}],
+        include: [{ model: History },]
       });
+
+      const b = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+        include: [{ model: Reply },]
+      });
+
+
+      // need to join three tables with sequelize
+
+      const usera = a.get({ plain: true });
+      const userb = b.get({ plain: true });
+
+      const combined= {username: usera.username, replies: userb.replies, histories: usera.histories}
+      console.log(combined)
   
-      const user = userData.get({ plain: true });
-      console.log(user)
+
       res.render('profile', {
-        ...user,
+        ...combined,
         logged_in: true
       });
     } catch (err) {

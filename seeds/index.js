@@ -1,9 +1,10 @@
 
-const {User, History, Reply} = require("../models")
+const {User, History, Reply, Tablejoin} = require("../models")
 const sequelize = require ('../config/connection');
 const userData = require('./user-seeds.json');
 const historyData = require('./post-seeds.json');
 const replyData = require('./reply-seeds.json');
+const tablejoinData = require('./tablejoin.json')
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -18,14 +19,18 @@ const seedDatabase = async () => {
           ...history,
           user_id: users[Math.floor(Math.random() * users.length)].id,
         });
-        console.log(history)
       }
       for (const reply of replyData) {
         await Reply.create({
           ...reply,
           user_id: users[Math.floor(Math.random() * users.length)].id,
         });
-        console.log(reply)
+      }
+      for (const join of tablejoinData) {
+        await Tablejoin.create({
+          ...join,
+          user_id: users[Math.floor(Math.random() * users.length)].id,
+        });
       }
   
     process.exit(0);

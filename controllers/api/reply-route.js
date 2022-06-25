@@ -8,8 +8,9 @@ router.post('/', withAuth, async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-
+    console.log(newpost)
     res.status(200).json(newpost);
+    
   } catch (err) {
     res.status(400).json(err);
   }
